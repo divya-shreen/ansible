@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>View</title>
+<link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<main class="page-shell">
+<section class="table-card">
+<div class="table-header">
+<div>
+<span class="eyebrow">Team records</span>
+<h1 class="table-title">Employee data</h1>
+<p class="table-copy">Review the full team list, then jump into updates or remove records from a more spacious table layout.</p>
+</div>
+<div class="stack-actions">
+<a href="/" class="btn btn-ghost">Home</a>
+<a href="/form" class="btn btn-primary">Add Employee</a>
+</div>
+</div>
+<div class="flash-banner" th:if="${msg}" th:text="${msg}"></div>
+<div class="flash-banner" th:if="${m}" th:text="${m}"></div>
+<div class="data-table-wrap">
+<table class="data-table">
+<thead>
+<tr>
+<th>Id</th>
+<th>Name</th>
+<th>Mobile</th>
+<th>Salary</th>
+<th>Department</th>
+<th>Date</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr th:each="emp:${ans}">
+<td th:text="${emp.id}"></td>
+<td th:text="${emp.name}"></td>
+<td th:text="${emp.mobile}"></td>
+<td th:text="${emp.salary}"></td>
+<td><span class="pill" th:text="${emp.department}"></span></td>
+<td th:text="${emp.doj}"></td>
+<td>
+<div class="inline-actions">
+<a th:href="'/edit/'+${emp.id}" class="btn btn-secondary">Edit</a>
+<a th:href="'/delete/'+${emp.id}" class="btn btn-danger">Delete</a>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="helper-text" th:text="${Emp}"></p>
+</section>
+</main>
+<script th:if="${msg}">
+alert("[[${msg}]]")
+</script>
+<script th:if="${m}">
+alert("[[${m}]]")
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Form</title>
+<link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<main class="page-shell centered-layout">
+<section class="panel-card">
+<div class="panel-header">
+<div>
+<span class="eyebrow">Create record</span>
+<h1 class="panel-title">Add employee details</h1>
+<p class="panel-copy">Capture the essentials with a simpler layout that stays readable even when validation messages appear.</p>
+</div>
+<a href="/" class="btn btn-ghost">Back Home</a>
+</div>
+<form action="/add" method="post" th:object="${employee}" class="employee-form">
+<div class="form-grid">
+<div class="field-group">
+<label class="field-label" for="name">Name</label>
+<input class="field-input" type="text" id="name" placeholder="Enter full name" th:field="*{name}">
+<div class="error-text" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+</div>
+<div class="field-group">
+<label class="field-label" for="no">Mobile</label>
+<input class="field-input" type="text" id="no" placeholder="Enter mobile number" th:field="*{mobile}">
+<div class="error-text" th:if="${#fields.hasErrors('mobile')}" th:errors="*{mobile}"></div>
+</div>
+<div class="field-group">
+<label class="field-label" for="sal">Salary</label>
+<input class="field-input" type="number" id="sal" placeholder="Enter salary" th:field="*{salary}">
+<div class="error-text" th:if="${#fields.hasErrors('salary')}" th:errors="*{salary}"></div>
+</div>
+<div class="field-group">
+<label class="field-label" for="dept">Department</label>
+<input class="field-input" type="text" id="dept" placeholder="Enter department" th:field="*{department}">
+<div class="error-text" th:if="${#fields.hasErrors('department')}" th:errors="*{department}"></div>
+</div>
+<div class="field-group field-span">
+<label class="field-label" for="date">Date of joining</label>
+<input class="field-input" type="date" id="date" th:field="*{doj}">
+<div class="error-text" th:if="${#fields.hasErrors('doj')}" th:errors="*{doj}"></div>
+</div>
+</div>
+<div class="form-actions">
+<button class="btn btn-primary" type="submit">Save Employee</button>
+<a href="/view" class="btn btn-secondary">Open Employee List</a>
+</div>
+</form>
+</section>
+</main>
+</body>
+</html>

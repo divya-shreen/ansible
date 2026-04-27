@@ -1,0 +1,27 @@
+services:
+    app:
+       build: .
+       image: employee
+       container_name: crud
+       ports:
+         - "8081:2030"
+       environment:
+          SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/emp?createDatabaseIfNotExist=true
+          SPRING_DATASOURCE_USERNAME=root
+          SPRING_DATASOURCE_PASSWORD=root
+       depends_on:
+         - db  
+       restart: always
+    db:
+      image: mysql:8
+      container_name: empdata
+      restart: always
+      ports:
+        - "3307:3306"
+      environment:
+        MYSQL_ROOT_PASSWORD=root
+        MYSQL_DATABASE=emp
+      volumes:
+        - mysql_data:/var/lib/mysql  
+volumes:
+    mysql_data:               

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Error</title>
+<link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<main class="page-shell centered-layout">
+<section class="error-card">
+<span class="eyebrow">Error state</span>
+<h1 class="error-title" th:text="${errorTitle}">Something Went Wrong</h1>
+<p class="error-copy" th:text="${errorMessage}">An unexpected error occurred.</p>
+<div class="hero-actions" style="justify-content: center;">
+<a href="/" class="btn btn-primary">Go Home</a>
+</div>
+</section>
+</main>
+</body>
+</html>

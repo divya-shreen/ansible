@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Main</title>
+<link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<main class="page-shell centered-layout">
+<section class="hero-card">
+<div>
+<span class="eyebrow">Employee workspace</span>
+<h1 class="page-title">Employee Management System</h1>
+<p class="page-copy">
+Manage employee records with a calmer, cleaner dashboard. Add new hires, review the team list,
+and move through the workflow from one polished place.
+</p>
+<div class="hero-actions">
+<a href="form" class="btn btn-primary">Add Employee</a>
+<a href="view" class="btn btn-secondary">View Records</a>
+</div>
+</div>
+<div class="hero-stat-grid">
+<div class="hero-stat">
+<strong>Simple CRUD</strong>
+<span>Fast employee entry, quick edits, and a cleaner admin flow.</span>
+</div>
+<div class="hero-stat">
+<strong>Responsive UI</strong>
+<span>Cards and actions adapt more smoothly on laptop and mobile layouts.</span>
+</div>
+<div class="hero-stat">
+<strong th:text="${m != null ? m : 'Ready'}">Ready</strong>
+<span th:text="${Saved != null ? Saved : 'Start by adding a new employee or opening the records table.'}">
+Start by adding a new employee or opening the records table.
+</span>
+</div>
+</div>
+</section>
+</main>
+<script th:if="${Saved}"> 
+alert("[[${Saved}]]")
+</script>
+</body>
+</html>
