@@ -4,13 +4,6 @@ pipeline{
         maven 'maven'
     }
 
-    environment {
-        APP_NAME = "divya2057/springboot-app"
-        DB_IMAGE = "divya2057/springboot-db"
-        TAG = "latest"
-        CONTAINER_NAME = "spring-container"
-    }
-
     parameters {
         choice(
             name: 'ACTION',
