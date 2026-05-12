@@ -1,0 +1,12 @@
+---
+- name: remove app
+  hosts: production
+  user: ansible
+  becomes: yes
+  connection: ssh
+  tasks: 
+    - name: stop app container
+      shell : docker stop prod || true
+      
+    - name: remove app conainer
+      shell: docker rm prod || true
