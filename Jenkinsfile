@@ -43,6 +43,7 @@ pipeline{
     
         stage("Build maven pkg"){
             steps{
+                sh 'ls -la'
                 sh 'mvn clean package'
             }
         }
