@@ -40,6 +40,7 @@ pipeline{
                 }
             }
         }
+    }
     
     stages{
         stage("maven clean pkg"){
@@ -147,5 +148,4 @@ pipeline{
     }
 
     
-}
 }
