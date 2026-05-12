@@ -42,7 +42,7 @@ pipeline{
         }
     }
     
-    stages{
+    stages {
         stage("maven clean pkg"){
             steps{
                 sh 'mvn clean package -DskipTests'
@@ -145,7 +145,5 @@ pipeline{
                 }
             }
         }
-    }
-
-    
+    }    
 }
