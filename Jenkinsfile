@@ -43,8 +43,7 @@ pipeline{
 
         stage('Check Workspace') {
            steps {
-              sh 'pwd'
-              sh 'ls -la'
+                sh 'find . -name pom.xml'
             }
         }
     
