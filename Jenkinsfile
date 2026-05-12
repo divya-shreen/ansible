@@ -40,6 +40,13 @@ pipeline{
                 }
             }
         }
+
+        stage('Check Workspace') {
+           steps {
+              sh 'pwd'
+              sh 'ls -la'
+            }
+        }
     
         stage("Build maven pkg"){
             steps{
