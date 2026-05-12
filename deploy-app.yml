@@ -1,7 +1,9 @@
 ---
-- hosts: prod
+- name: deploy app
+  hosts: prod
+  user: ansible
   become: yes
-
+  connection: ssh
   tasks:
 
     - name: Pull Docker Image
