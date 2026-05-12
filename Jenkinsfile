@@ -4,12 +4,19 @@ pipeline{
         maven 'maven'
     }
 
+    environment {
+        APP_NAME = "divya2057/springboot-app"
+        DB_IMAGE = "divya2057/springboot-db"
+        TAG = "latest"
+        CONTAINER_NAME = "spring-container"
+    }
+
     parameters {
-        string(name: "UPDATE", defaultValue: "update.yml")
-        string(name: "REMOVE_DB", defaultValue: "remove_db.yml")
-        string(name: "REMOVE_APP", defaultValue: "remove_app.yml")
-        string(name: "DEPLOY_DB", defaultValue: "deploydb.yml")
-        string(name: "DEPLOY_APP", defaultValue: "deploy_app.yml")  
+        choice(
+            name: 'ACTION',
+            choices: ['deploy', 'remove', 'update'],
+            description: 'Choose action'
+        )
     }
 
     stages{
